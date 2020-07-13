@@ -75,5 +75,7 @@ if __name__ == "__main__":
             speak(result)
         elif 'offline' in query:
             quit()
+
+            
         
         takeCommand()
