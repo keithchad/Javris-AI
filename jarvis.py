@@ -108,7 +108,13 @@ if __name__ == "__main__":
 
         elif 'restart' in query:
             os.system("shutdown /r /t 1")
+
+        elif 'play songs' in query:
+            songs_dir = 'C:/Users/lilly s/Desktop/Music'
+            songs = os.listdir(songs_dir)
+            os.startfile(os.path.join(songs_dir, songs[0]))
             
+
         elif 'offline' in query:
             quit()
 
