@@ -5,6 +5,9 @@ import wikipedia
 import smtplib
 import webbrowser as wb
 import os
+import psutil
+import pyautogui
+import pyjokes
 
 engine = pyttsx3.init()
 def speak(audio):
@@ -68,6 +71,18 @@ def sendEmail(to, content):
     server.sendmail('chadev10@gmail.com', to , content)
     server.close()
 
+def screenshot():
+    img = pyautogui.screenshot()
+    img.save('C:\\Users\\lilly s\\Desktop\\JARVIS AI\\ss.png')
+
+def cpu()
+    usage = str(psutil.cpu_percentage())
+    speak("CPU is at "+usage)
+    battery = psutil.sensors_battery()
+    speak("Battery is at")
+    speak(battery.percent)
+
+
 
 if __name__ == "__main__":
     wishme()
@@ -113,7 +128,21 @@ if __name__ == "__main__":
             songs_dir = 'C:/Users/lilly s/Desktop/Music'
             songs = os.listdir(songs_dir)
             os.startfile(os.path.join(songs_dir, songs[0]))
-            
+        elif 'remember that' in query:
+            speak("What should i Remember?")
+            data = takeCommand()
+            speak("You told me  to remember that"+data)
+            remember = open('data.txt', 'w')
+            remember.write(data)
+            remember.close()
+        elif 'do you know anything' in query:
+            remember = open('data.txt', 'r')
+            speak("You told me  to remember that" +remember.read())
+        elif 'screenshot' in query:
+            screenshot()
+            speak("Done!")
+        elif 'cpu' in query()
+            cpu()
 
         elif 'offline' in query:
             quit()
