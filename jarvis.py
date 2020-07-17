@@ -99,6 +99,16 @@ if __name__ == "__main__":
             chromepath = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             search = takeCommand().lower
             wb.get(chromepath).open_new_tab(search+'.com')
+
+        elif 'logout' in query:
+            os.system("shutdown -1")
+
+        elif 'shutdown' in query:
+            os.system("shutdown /s /t 1")
+
+        elif 'restart' in query:
+            os.system("shutdown /r /t 1")
+            
         elif 'offline' in query:
             quit()
 
